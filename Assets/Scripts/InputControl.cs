@@ -23,16 +23,22 @@ public class InputControl : MonoBehaviour {
 
     private void OnMouseDown()
     {
+        Debug.Log(r.GetActive());
         r.SetActive(false);
+        Debug.Log(r.GetActive());
     }
+
 
     // Invoked when the value of the text field changes.
     public void ValueChangeCheck()
     {
-        ArrayList allowed = new ArrayList{ "R", "R'", "L", "U" };
+
+        ArrayList allowed = new ArrayList{ "R", "R'", "L", "L'", "U", "U'", "D", "D'", "F","F'", "B","B'", "R2", "L2", "B2", "F2", "U2", "D2" };
         string test = mainInputField.text;
-        test.Trim(' ');
-        string[] chars = test.Split(',');
+        test.TrimEnd();
+        test.TrimStart();
+  
+        string[] chars = test.Split(' ');
 
         bool ok = true;
         foreach (string ch in chars)

@@ -44,14 +44,18 @@ public class RotateScript : MonoBehaviour {
 		movements.Add ("M", M_move);
 		movements.Add ("E", E_move);
 
-		active = true;
+		active = false;
 	}
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            active = true;
+        }
 
-        if (GetActive())
+        if (active)
         {
             if (isTurning == false)
             {
